@@ -18,7 +18,7 @@ recipehtml = requests.get(recipeurl).text
 #parse html
 recipesoup = BeautifulSoup(recipehtml, 'html.parser')
 
-#Find and Show recipe + comments
+#Find and Show recipe + comments by div element
 div_element = recipesoup.find('div', attrs={'class': 'commentarea'})
 div_text = div_element.get_text(separator='\n')
 recipetitle = recipesoup.title.text
@@ -35,11 +35,3 @@ filename = f"{user_input.strip()}.docx"
 #save the file
 recipedoc.save(filename)
 print("File saved to", filename)
-
-
-
-
-
-
-
-
